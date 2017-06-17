@@ -1,4 +1,4 @@
-/* Parpadear un led por 5 segundos encendido y 3 segundo apagado*/
+/* Parpadear el led 04 por 10 segundos encendido y 5 segundo apagado*/
 //gcc -Wall -pthread -o ejemplo ejemplo.c -lpigpio -lrt
 #include <stdio.h>
 #include <pigpio.h>
@@ -17,9 +17,9 @@ int main (int argc, char*argv[])
 while(1)
 {
 		gpioWrite(04,1);
+		sleep(10);
+	        gpioWrite(04,0);
 		sleep(5);
-	    gpioWrite(04,0);
-		sleep(3);
 }
 gpioTerminate();
 }
