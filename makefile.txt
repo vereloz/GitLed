@@ -1,0 +1,14 @@
+build: pre compile asm linker
+
+pre:
+	cpp ejemplo1.c > ejemplo1.i
+compile:
+	gcc -S ejemplo1.i
+asm:
+	as -o ejemplo1.o ejemplo1.s
+linker:
+	gcc -Wall -pthread -o ejemplo1.exe ejemplo1.o -lpigpio -lrt
+run:
+	sudo ./ejemplo1.exe
+clean:
+	rm ejemplo1.i ejemplo1.s ejemplo1.o ejemplo1.exe
