@@ -13,13 +13,20 @@ int main (int argc, char*argv[])
 		}
 
 	gpioSetMode(04,PI_OUTPUT);
-
+	gpioSetMode(02,PI_OUTPUT);
+	gpioSetMode(14,PI_INPUT);
 while(1)
 {
 		gpioWrite(04,1);
 		sleep(5);
-	    gpioWrite(04,0);
+	    	gpioWrite(04,0);
 		sleep(3);
+		if(gpioRead(14)){
+		gpioWrite(02,1);
+		sleep(2);
+		gpioWrite(02,0);
+		sleep(3);
+		}
 }
 gpioTerminate();
 }
